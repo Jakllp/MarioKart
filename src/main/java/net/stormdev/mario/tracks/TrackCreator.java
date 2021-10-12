@@ -51,7 +51,6 @@ public class TrackCreator {
 		} else if (wand && stage == 5) {
 			setLine2();
 		}
-		trackCreators.put(player.getName(), this);
 		return;
 	}
 
@@ -135,7 +134,7 @@ public class TrackCreator {
 		player.sendMessage(MarioKart.colors.getSuccess() + msg);
 		
 		String reminder = MarioKart.msgs.get("setup.create.reminder");
-		player.sendMessage(MarioKart.colors.getInfo() + msg);
+		player.sendMessage(MarioKart.colors.getInfo() + reminder);
 		trackCreators.remove(player.getName());
 		return;
 	}
