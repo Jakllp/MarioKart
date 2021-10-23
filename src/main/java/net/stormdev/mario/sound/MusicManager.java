@@ -91,6 +91,13 @@ public class MusicManager {
 	
 	public MarioKartSound getBestSong(Race race){ //TODO
 		long raceTime = race.getTimeLimitS() - 75;
+
+		//Try to match song and track names directly
+		MarioKartSong songMatch = this.songs.get(race.getTrackName());
+		if(songMatch != null) {
+			return songMatch.asMkSound();
+		}
+		
 		List<MarioKartSong> songs = new ArrayList<MarioKartSong>(this.songs.values());
 		for(MarioKartSong song:new ArrayList<MarioKartSong>(songs)){ //Key is also the song length
 			if(song.getLength() > raceTime){
