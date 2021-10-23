@@ -60,17 +60,19 @@ public class MusicManager {
 		MarioKart.logger.info("Loaded "+songs.size()+" songs!");
 	}
 	public void playMusic(final Race race){
-		Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, new Runnable(){
+		if(!musicEnabled){
+			return;
+		}
+		
+		MarioKartSound song = getBestSong(race);				
+		if(song == null){
+			return;
+		}
+
+		Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, new Runnable(){
 
 			@Override
 			public void run() {
-				if(!musicEnabled){
-					return;
-				}
-				MarioKartSound song = getBestSong(race);				
-				if(song == null){
-					return;
-				}
 				for(User u:race.getUsersIn()){
 					Player p;
 					try {
@@ -83,7 +85,7 @@ public class MusicManager {
 					}
 				}
 				return;
-			}}, 30l);
+			}}, 30l, (long) (song.getLength() * 20l));
 	}
 	
 	//Song chooser
