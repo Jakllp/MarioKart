@@ -166,10 +166,14 @@ public class MusicManager {
 	
 	public Boolean playCustomSound(Player recipient, Location location,
 			MarioKartSound sound, float volume, float pitch){
+		if (recipient == null)
+			return false;
 		return playCustomSound(recipient, location, sound.getPath(), volume, pitch);
 	}
 	
 	public Boolean playCustomSound(Player recipient, MarioKartSound sound){
+		if (recipient == null)
+			return false;
 		return playCustomSound(recipient, recipient.getLocation(),
 				sound, Float.MAX_VALUE, 1f);
 	}
