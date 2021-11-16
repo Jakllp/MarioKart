@@ -489,8 +489,10 @@ public class RaceExecutor {
 											p.sendMessage(MarioKart.colors.getSuccess()
 													+ game.getWinner()
 													+ MarioKart.msgs.get("race.end.won"));
-											p.sendMessage(MarioKart.colors.getInfo()
-													+ msg);
+
+											if (game.getWinner() == null || !game.getWinner().equals(p.getName()))
+												p.sendMessage(MarioKart.colors.getInfo()
+														+ msg);
 										} catch (PlayerQuitException e) {
 											// Player has left
 										} catch (Exception e){

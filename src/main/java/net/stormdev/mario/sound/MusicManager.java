@@ -60,17 +60,19 @@ public class MusicManager {
 		MarioKart.logger.info("Loaded "+songs.size()+" songs!");
 	}
 	public void playMusic(final Race race){
-		Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, new Runnable(){
+		if(!musicEnabled){
+			return;
+		}
+		
+		MarioKartSound song = getBestSong(race);				
+		if(song == null){
+			return;
+		}
+
+		Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, new Runnable(){
 
 			@Override
 			public void run() {
-				if(!musicEnabled){
-					return;
-				}
-				MarioKartSound song = getBestSong(race);				
-				if(song == null){
-					return;
-				}
 				for(User u:race.getUsersIn()){
 					Player p;
 					try {
@@ -83,7 +85,7 @@ public class MusicManager {
 					}
 				}
 				return;
-			}}, 30l);
+			}}, 30l, (long) (song.getLength() * 20l));
 	}
 	
 	//Song chooser
@@ -91,6 +93,13 @@ public class MusicManager {
 	
 	public MarioKartSound getBestSong(Race race){ //TODO
 		long raceTime = race.getTimeLimitS() - 75;
+
+		//Try to match song and track names directly
+		MarioKartSong songMatch = this.songs.get(race.getTrackName());
+		if(songMatch != null) {
+			return songMatch.asMkSound();
+		}
+		
 		List<MarioKartSong> songs = new ArrayList<MarioKartSong>(this.songs.values());
 		for(MarioKartSong song:new ArrayList<MarioKartSong>(songs)){ //Key is also the song length
 			if(song.getLength() > raceTime){
@@ -157,10 +166,14 @@ public class MusicManager {
 	
 	public Boolean playCustomSound(Player recipient, Location location,
 			MarioKartSound sound, float volume, float pitch){
+		if (recipient == null)
+			return false;
 		return playCustomSound(recipient, location, sound.getPath(), volume, pitch);
 	}
 	
 	public Boolean playCustomSound(Player recipient, MarioKartSound sound){
+		if (recipient == null)
+			return false;
 		return playCustomSound(recipient, recipient.getLocation(),
 				sound, Float.MAX_VALUE, 1f);
 	}
