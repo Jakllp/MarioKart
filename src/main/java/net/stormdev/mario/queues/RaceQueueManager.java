@@ -22,7 +22,7 @@ public class RaceQueueManager {
 		if (trackQueues.size() < 1) {
 			return false;
 		}
-		Set<UUID> keys = trackQueues.keySet();
+		Set<UUID> keys = Set.copyOf(trackQueues.keySet());
 		for (UUID key : keys) {
 			RaceQueue r = trackQueues.get(key);
 			if (r.getRaceMode() == raceMode || raceMode.equals(RaceType.AUTO)) {
@@ -37,7 +37,7 @@ public class RaceQueueManager {
 		if (trackQueues.size() < 1) {
 			return null;
 		}
-		Set<UUID> keys = trackQueues.keySet();
+		Set<UUID> keys = Set.copyOf(trackQueues.keySet());
 		for (UUID key : keys) {
 			RaceQueue r = trackQueues.get(key);
 			if (r.getRaceMode() == raceMode || raceMode.equals(RaceType.AUTO)) {
@@ -52,7 +52,7 @@ public class RaceQueueManager {
 		if (trackQueues.size() < 1) {
 			return null;
 		}
-		Set<UUID> keys = trackQueues.keySet();
+		Set<UUID> keys = Set.copyOf(trackQueues.keySet());
 		for (UUID key : keys) {
 			RaceQueue r = trackQueues.get(key);
 			if (r.getQueueId().equals(queueId)) {
@@ -98,7 +98,8 @@ public class RaceQueueManager {
 		if (MarioKart.plugin.queues.containsKey(trackName)) {
 			trackQueues.putAll(MarioKart.plugin.queues.get(trackName));
 		}
-		for(UUID id:trackQueues.keySet()){
+		Set<UUID> keys = Set.copyOf(trackQueues.keySet());
+		for(UUID id : keys){
 			RaceQueue q = trackQueues.get(id);
 			if(q.getRaceMode() != type && type != RaceType.AUTO){
 				trackQueues.remove(id);
