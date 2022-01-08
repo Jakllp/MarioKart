@@ -44,7 +44,7 @@ public class VoteHandler {
 		startTime = System.currentTimeMillis();
 		VOTE_META = UUID.randomUUID().toString();
 		board = Bukkit.getScoreboardManager().getNewScoreboard();
-		obj = board.registerNewObjective("votes", "dummy", ChatColor.BOLD+""+ChatColor.RED+"Votes:");
+		obj = board.registerNewObjective(ChatColor.BOLD+""+ChatColor.RED+"Votes:", "dummy");
 		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
 		VOTE_TIME = MarioKart.config.getInt("general.server.votetime");
 		calculateMapList();
@@ -148,7 +148,7 @@ public class VoteHandler {
 						
 						player.setLevel(rem);
 						if(rem < 5){
-							player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1f, Integer.MAX_VALUE);
+							player.playSound(player.getLocation(), Sound.BLOCK_NOTE_PLING, 1f, Integer.MAX_VALUE);
 						}
 					}});
 				return;

@@ -65,7 +65,7 @@ public class SpectatorMode implements Listener {
             player.setAllowFlight(true);
             player.setFlying(true);
 
-            PotionEffect invisibility = new PotionEffect(PotionEffectType.INVISIBILITY, 99999, 9999, true, false, false);
+            PotionEffect invisibility = new PotionEffect(PotionEffectType.INVISIBILITY, 99999, 9999, true, false);
             player.addPotionEffect(invisibility);
 
             hide(player);
@@ -181,7 +181,7 @@ public class SpectatorMode implements Listener {
         teleporterInventory = Bukkit.createInventory(null, inventorySize, MarioKart.msgs.get("server.spectator.teleporterTitle"));
         int i = 0;
         for (Player player : alivePlayers) {
-            ItemStack item = new ItemStack(Material.PLAYER_HEAD);
+            ItemStack item = new ItemStack(Material.SKULL);
             SkullMeta meta = (SkullMeta) item.getItemMeta();
             meta.setOwningPlayer(player);
             meta.setDisplayName(player.getName());

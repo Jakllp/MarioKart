@@ -97,7 +97,7 @@ public class RaceEventsListener implements Listener {
 			return;
 		}
 		final Player player = (Player) passenger;
-		if(lavaDamage && (block.getType().equals(Material.LAVA) || block.getType().equals(Material.LEGACY_STATIONARY_LAVA))){
+		if(lavaDamage && (block.getType().equals(Material.LAVA) || block.getType().equals(Material.STATIONARY_LAVA))){
 			Bukkit.getScheduler().runTaskAsynchronously(MarioKart.plugin, new Runnable(){
 
 				@Override
@@ -108,7 +108,7 @@ public class RaceEventsListener implements Listener {
 					}
 					String tName = r.getTrackName();
 					if(ldTracks.contains(tName)){
-						//Damage them
+						//Damage thems
 						Bukkit.getScheduler().runTask(plugin, new Runnable(){
 
 							@Override
@@ -119,7 +119,7 @@ public class RaceEventsListener implements Listener {
 					}
 				}});
 		}
-		if(waterDamage && (block.getType().equals(Material.WATER) || block.getType().equals(Material.LEGACY_STATIONARY_WATER))){
+		if(waterDamage && (block.getType().equals(Material.WATER) || block.getType().equals(Material.STATIONARY_WATER))){
 			Bukkit.getScheduler().runTaskAsynchronously(MarioKart.plugin, new Runnable(){
 
 				@Override
@@ -807,6 +807,9 @@ public class RaceEventsListener implements Listener {
 	
 	@EventHandler
 	void merge(ItemMergeEvent event) {
+		if(event.getEntity().getItemStack().getItemMeta().getDisplayName() == null)
+			return;
+
 		if(event.getEntity().getItemStack().getItemMeta().getDisplayName().contains("Banana")) {
 			event.setCancelled(true);
 		}

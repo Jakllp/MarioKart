@@ -77,14 +77,14 @@ public class Race {
 			@Override
 			public void run() {
 				board = MarioKart.plugin.getServer().getScoreboardManager().getNewScoreboard();
-				scores = board.registerNewObjective(" ", "dummy"," ");
+				scores = board.registerNewObjective(" ", "dummy");
 				scores.setDisplaySlot(DisplaySlot.BELOW_NAME);
 				if (type != RaceType.TIME_TRIAL) {
 					scoresBoard = board.registerNewObjective(ChatColor.GOLD
-							+ "Race Positions", "dummy","Race Positions");
+							+ "Race Positions", "dummy");
 				} else { // Time Trial
 					scoresBoard = board.registerNewObjective(ChatColor.GOLD
-							+ "Race Time(s)", "dummy","Race Time(s)");
+							+ "Race Time(s)", "dummy");
 				}
 				scoresBoard.setDisplaySlot(DisplaySlot.SIDEBAR);
 				return;

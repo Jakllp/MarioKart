@@ -62,7 +62,7 @@ public class HotBarManager {
 		ArrayList<HotBarItem> defaultItems = new ArrayList<HotBarItem>();
 		ArrayList<HotBarItem> unlockedItems = new ArrayList<HotBarItem>();
 		HotBarItem exit_door = new HotBarItem(
-				new ItemStack(Material.LEGACY_WOOD_DOOR), ChatColor.GREEN
+				new ItemStack(Material.WOOD_DOOR), ChatColor.GREEN
 						+ "Leave Race", 1, HotBarUpgrade.LEAVE,
 				new HashMap<String, Object>(), "null");
 		defaultItems.add(exit_door);

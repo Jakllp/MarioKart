@@ -72,12 +72,7 @@ public enum ParticleEffects {
 			//for (Player player : Bukkit.getOnlinePlayers()) {
 			//	sendPacket(player, packet);
 			//}
-			if(effect.get() == Particle.REDSTONE) {
-				Particle.DustOptions dust = new Particle.DustOptions(Color.RED, 5);
-				location.getWorld().spawnParticle(Particle.REDSTONE, location, count, offsetX, offsetY, offsetZ, speed, dust);
-			} else {
-				location.getWorld().spawnParticle(effect.get(), location, count, offsetX, offsetY, offsetZ, speed);
-			}
+			location.getWorld().spawnParticle(effect.get(), location, count, offsetX, offsetY, offsetZ, speed);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -92,12 +87,6 @@ public enum ParticleEffects {
 			//for (Player player : Bukkit.getOnlinePlayers()) {
 			//	sendPacket(player, packet);
 			//}
-			if(effect == Particle.REDSTONE) {
-				Particle.DustOptions dust = new Particle.DustOptions(Color.RED, 5);
-				location.getWorld().spawnParticle(Particle.REDSTONE, location, count, offsetX, offsetY, offsetZ, speed, dust);
-			} else {
-				location.getWorld().spawnParticle(effect, location, count, offsetX, offsetY, offsetZ, speed);
-			}
 			location.getWorld().spawnParticle(effect, location, count, offsetX, offsetY, offsetZ, speed);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -132,12 +121,7 @@ public enum ParticleEffects {
 			//Object packet = createPacket(effect, location, offsetX, offsetY,
 			//		offsetZ, speed, count);
 			//sendPacket(player, packet);
-			if(effect.get() == Particle.REDSTONE) {
-				Particle.DustOptions dust = new Particle.DustOptions(Color.RED, 5);
-				player.spawnParticle(effect.get(), location, count, offsetX, offsetY, offsetZ, speed, dust);
-			} else {
-				player.spawnParticle(effect.get(), location, count, offsetX, offsetY, offsetZ, speed);
-			}
+			player.spawnParticle(effect.get(), location, count, offsetX, offsetY, offsetZ, speed);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

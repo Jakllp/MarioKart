@@ -499,7 +499,7 @@ public class UnlockableManager implements Listener {
 			upgrades.set("upgrades.immunityII.id", "ad");
 			upgrades.set("upgrades.immunityII.type", HotBarUpgrade.IMMUNITY
 					.name().toUpperCase());
-			upgrades.set("upgrades.immunityII.item", Material.GOLDEN_HELMET
+			upgrades.set("upgrades.immunityII.item", Material.GOLD_HELMET
 					.name().toUpperCase());
 			upgrades.set("upgrades.immunityII.length", 10000l);
 			upgrades.set("upgrades.immunityII.useItem", true);
