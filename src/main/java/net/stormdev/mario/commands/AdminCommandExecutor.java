@@ -30,6 +30,7 @@ import net.stormdev.mario.server.FullServerManager;
 import net.stormdev.mario.server.ServerStage;
 import net.stormdev.mario.tracks.RaceTrack;
 import net.stormdev.mario.tracks.TrackCreator;
+import org.bukkit.material.MaterialData;
 
 public class AdminCommandExecutor implements CommandExecutor {
 	private MarioKart plugin;
@@ -427,15 +428,15 @@ public class AdminCommandExecutor implements CommandExecutor {
 				sender.sendMessage(MarioKart.colors.getInfo()+"You are running MarioKart "+plugin.getDescription().getVersion());
 				return true;
 			} else if (command.equalsIgnoreCase("itemsign") || command.equalsIgnoreCase("itembox")) {
-				Block block = player.getWorld().getBlockAt(player.getLocation());
+				Block block = player.getLocation().getBlock();
 				
 				if(!(block.getState() instanceof Sign)) {
-				    block.setType(Material.SIGN);
+				    block.setType(Material.SIGN_POST);
 				}
 
 				Sign sign = (Sign) block.getState();
 
-				sign.setLine(0, MarioKart.colors.getTitle()+"[MarioKart]");
+				sign.setLine(0, MarioKart.colors.getTitle() + "[MarioKart]");
 				sign.setLine(1, "items");
 
 				sign.update();

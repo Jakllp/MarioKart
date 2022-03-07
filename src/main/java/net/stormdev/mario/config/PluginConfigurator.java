@@ -199,22 +199,22 @@ public class PluginConfigurator {
 			config.set("mariokart.enable", true);
 		}
 		if (!config.contains("mariokart.redShell")) {
-			config.set("mariokart.redShell", "RED_DYE");
+			config.set("mariokart.redShell", "INK_SACK:1");
 		}
 		if (!config.contains("mariokart.greenShell")) {
-			config.set("mariokart.greenShell", "GREEN_DYE");
+			config.set("mariokart.greenShell", "INK_SACK:2");
 		}
 		if (!config.contains("mariokart.blueShell")) {
-			config.set("mariokart.blueShell", "LIGHT_BLUE_DYE");
+			config.set("mariokart.blueShell", "INK_SACK:12");
 		}
 		if (!config.contains("mariokart.banana")) {
-			config.set("mariokart.banana", "YELLOW_DYE");
+			config.set("mariokart.banana", "INK_SACK:11");
 		}
 		if (!config.contains("mariokart.star")) {
-			config.set("mariokart.star", "NETHER_STAR");
+			config.set("mariokart.star", "NETHER_STAR:0");
 		}
 		if (!config.contains("mariokart.lightning")) {
-			config.set("mariokart.lightning", "LIGHT_GRAY_DYE");
+			config.set("mariokart.lightning", "INK_SACK:7");
 		}
 		if (!config.contains("mariokart.bomb")) {
 			config.set("mariokart.bomb", "TNT:0");
@@ -226,7 +226,7 @@ public class PluginConfigurator {
 			config.set("mariokart.pow", "ICE");
 		}
 		if (!config.contains("mariokart.random")) {
-			config.set("mariokart.random", "YELLOW_TERRACOTTA");
+			config.set("mariokart.random", "STAINED_CLAY:4");
 		}
 		if (!config.contains("mariokart.mushroom")) {
 			config.set("mariokart.mushroom", "RED_MUSHROOM");

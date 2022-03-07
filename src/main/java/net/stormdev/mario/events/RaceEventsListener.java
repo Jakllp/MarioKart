@@ -292,7 +292,7 @@ public class RaceEventsListener implements Listener {
 	    MarioKart.powerupManager.calculate(player, event);
 		return;
 	}
-	
+
 	@EventHandler
 	void stayInCar(VehicleExitEvent event) { //Keep players inside their cars during a race
 		Entity v = event.getVehicle();
@@ -306,8 +306,8 @@ public class RaceEventsListener implements Listener {
 		Minecart car = (Minecart) v;
 		Entity e = event.getExited();
 		if (!(e instanceof Player)) {
-			while(e!=null && !(e instanceof Player) && !e.isEmpty()){
-				e = e.getPassengers().get(0);
+			while(e!=null && !(e instanceof Player) && e.getPassenger() != null){
+				e = e.getPassenger();
 			}
 			if(e==null || !(e instanceof Player)){
 				return;
@@ -321,9 +321,6 @@ public class RaceEventsListener implements Listener {
 			return;
 		}
 		//System.out.println("Cancelling car exit...");
-		final Vehicle brumm = car;
-		brumm.eject();
-		brumm.addPassenger(player);
 		event.setCancelled(true);
 	}
 	
