@@ -94,8 +94,8 @@ public class MarioKart extends JavaPlugin {
 	public Random random = null;
 	public static PowerupManager powerupManager = null;
 	public RaceTimes raceTimes = null;
-	public String packUrl = "https://media.forgecdn.net/files/3424/662/mariocart.zip";
-	public String fullPackUrl = "https://media.forgecdn.net/files/3424/662/mariocart.zip";
+	public String packUrl = "https://media.forgecdn.net/files/3683/56/mariocart112.zip";
+	public String fullPackUrl = "https://media.forgecdn.net/files/3683/56/mariocart112.zip";
 	public String emptyPackUrl = "https://media.forgecdn.net/files/3424/509/empty.zip";
 	public HotBarManager hotBarManager = null;
 	public double checkpointRadiusSquared = 10.0;

@@ -10,8 +10,8 @@ import net.stormdev.mario.mariokart.MarioKart;
 
 public class RPManager {
 	
-	private static final String fallbackURL = "https://media.forgecdn.net/files/3424/662/mariocart.zip"; //Current one at time of writing
-	//http://minecraft.curseforge.com/texture-packs/74301-mario-kart-resource-pack/files/774770/download
+	private static final String fallbackURL = "https://media.forgecdn.net/files/3683/56/mariocart112.zip"; //Current one at time of writing
+	//https://www.curseforge.com/minecraft/texture-packs/mariokart-resourcepack/download/3683056
 	
 	private static final String fallbackEmpty = "https://media.forgecdn.net/files/3424/509/empty.zip";
 	/*
@@ -48,7 +48,7 @@ public class RPManager {
 		MarioKart.logger.info("Attempting to resolve resource pack URL... (This may take a while)");
 		
 		//Follow the server's redirect until we reach the .zip file
-		URLConnection c = new URL("https://media.forgecdn.net/files/3424/662/mariocart.zip").openConnection();
+		URLConnection c = new URL("https://media.forgecdn.net/files/3683/56/mariocart112.zip").openConnection();
 		c.connect();
 		InputStream is = c.getInputStream();
 		String rURL = c.getURL().toExternalForm();
@@ -121,7 +121,7 @@ public class RPManager {
 		}
 		
 		String url = args[0];
-		
+
 		String rURL;
 		try {
 			//Follow the server's redirect until we reach the .zip file
