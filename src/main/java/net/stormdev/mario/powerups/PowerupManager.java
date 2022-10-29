@@ -17,6 +17,7 @@ import org.bukkit.entity.Minecart;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.Event;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.vehicle.VehicleUpdateEvent;
 import org.bukkit.inventory.ItemStack;
@@ -97,6 +98,11 @@ public class PowerupManager {
 		if (event instanceof PlayerInteractEvent) {
 			PlayerInteractEvent evt = (PlayerInteractEvent) event;
 			if (!ucars.listener.inACar(evt.getPlayer())) {
+				//Spamming respawn can produce problems! So lets do stuff against that
+				if((evt.getAction() == org.bukkit.event.block.Action.RIGHT_CLICK_AIR || evt
+						.getAction() == org.bukkit.event.block.Action.RIGHT_CLICK_BLOCK) &&
+						evt.getPlayer().getInventory().getItemInMainHand().equals(this.respawn))
+							evt.setCancelled(true);
 				return;
 			}
 			if (player.hasMetadata("kart.rolling")) {
@@ -141,8 +147,8 @@ public class PowerupManager {
 				if (!car.hasMetadata("car.frozen")) {
 					player.sendMessage(ChatColor.GREEN + "Respawning...");
 					plugin.raceMethods.playerRespawn(player,car);
-					evt.setCancelled(true);
 				}
+				evt.setCancelled(true);
 				return;
 			}
 			MarioHotBar hotBar = MarioKart.plugin.hotBarManager.getHotBar(ply);
