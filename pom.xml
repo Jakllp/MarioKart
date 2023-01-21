@@ -5,7 +5,7 @@
     <artifactId>MK</artifactId>
     <name>MarioKart</name>
     <description>The MarioKart bukkit plugin found at http://dev.bukkit.org/bukkit-plugins/MarioKart</description>
-    <version>1.13plus-1.6.6</version>
+    <version>1.13plus-1.6.7</version>
     <packaging>jar</packaging>
     <url>https://github.com/Jakllp/MarioKart-1.13plus</url>
     <issueManagement>
@@ -28,7 +28,7 @@
         <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
       </repository>
       <repository>
-        <id>comphenix-rep</id>=
+        <id>comphenix-rep</id>
         <name>Comphenix Repository</name>
         <url>http://repo.comphenix.net/content/groups/public</url>
       </repository>
