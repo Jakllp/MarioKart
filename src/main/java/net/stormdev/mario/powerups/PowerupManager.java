@@ -557,7 +557,7 @@ public class PowerupManager {
 		}
 		
 		if(!foundSign){
-			Bukkit.broadcastMessage("Unregistered item box! If this was not intended, please report it as a bug!");
+			Bukkit.broadcast("Unregistered item box! If this was not intended, please report it as a bug!","mariokart.raceadmin");
 			return false; //No sign, so remove it
 		}
 		

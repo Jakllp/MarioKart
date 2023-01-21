@@ -321,6 +321,11 @@ public class RaceEventsListener implements Listener {
 			return;
 		}
 		//System.out.println("Cancelling car exit...");
+		if(MarioKart.MCVersion.get(0) == 1 && MarioKart.MCVersion.get(1) < 17) {
+			final Vehicle brumm = car;
+			brumm.eject();
+			brumm.addPassenger(player);
+		}
 		event.setCancelled(true);
 	}
 	
