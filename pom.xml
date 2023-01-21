@@ -28,7 +28,7 @@
         <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
       </repository>
       <repository>
-        <id>comphenix-rep</id>
+        <id>comphenix-rep</id>=
         <name>Comphenix Repository</name>
         <url>http://repo.comphenix.net/content/groups/public</url>
       </repository>
@@ -42,7 +42,7 @@
       </repository>
       <repository>
         <id>jakl-repo</id>
-        <url>https://repo.jakllp.com</url>
+        <url>https://repo.jakllp.com/snapshots</url>
       </repository>
     </repositories>
 
